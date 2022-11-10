@@ -1,0 +1,37 @@
+// Richard Steven Thiam Guayazan, Nicolás Guzmán López, María Valentina Vega Caro, Carlos Julio Ruiz Tovar
+#include <iostream>
+#include <cstdlib>
+
+void fill(double * array, int size);
+double average(double * array, int size);
+
+
+int main(int arg, char **argv) {
+
+  int N = std::atoi(argv[1]);
+
+  double * data;
+  data = new double [N]; // ask for memory
+
+  fill(data, N);
+  double avg = average(data, N);
+  std::cout << "The average is " << avg << std::endl;
+
+  delete [] data; // free memory
+
+  return 0;
+}
+
+void fill(double * data, int N) {
+  for (int i = 0; i < N; ++ i) {
+    data[i] = i;
+  }
+}
+
+double average(double * array, int N) {
+  double sum = 0.0;
+  for(int ii = 0; ii < N; ++ ii) {
+       sum += array[ii];
+  }
+  return sum / N; 
+}
